@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
 <title>The Wedding of Kresna & Tiara</title>
-<!-- Menghilangkan error favicon 404 -->
 <link rel="icon" href="data:,">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +34,12 @@
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* RESET A tag khusus untuk iPhone */
+  a[href^="tel"] {
+    color: inherit; /* Inherit text color of parent element. */
+    text-decoration: none; /* Remove underline. */
   }
 
   .stage {
@@ -265,13 +271,30 @@
   /* ================= GALLERY ================= */
   #gallery { padding-bottom: 50px; }
   #gallery h2 { font-size: 2.2rem; margin-bottom: 40px; }
-  .gallery-container { column-count: 2; column-gap: 10px; padding: 0 10px; }
+  .gallery-container { 
+    /* Agar di HP gambar tidak saling tumpang tindih */
+    column-count: 2; 
+    column-gap: 12px; 
+    padding: 0 12px; 
+  }
   .gallery-container .cell {
-    break-inside: avoid; margin-bottom: 10px; overflow: hidden; border-radius: 12px;
-    cursor: pointer; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    break-inside: avoid; /* Wajib ada biar foto gak terpotong */
+    margin-bottom: 12px; 
+    overflow: hidden; 
+    border-radius: 12px;
+    cursor: pointer; 
+    position: relative; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    /* Tambahan agar gambar menyesuaikan rapi */
+    display: block; 
+    width: 100%;
   }
   .gallery-container .cell img {
-    width: 100%; height: auto; display: block; transition: transform .6s ease; border-radius: 12px;
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    transition: transform .6s ease; 
+    border-radius: 12px;
   }
   .gallery-container .cell:hover img { transform: scale(1.05); }
 
@@ -369,19 +392,17 @@
   /* KOTAK AUTO-SCROLL UCAPAN */
   .wish-list-wrapper {
     margin-top: 45px;
-    max-height: 400px; /* Batas tinggi list ucapan (sekitar 3-4 ucapan) */
+    max-height: 400px;
     overflow-y: auto;
     text-align: left;
     padding-right: 5px;
-    /* Efek fade (menghilang mulus) di atas dan bawah kotak scroll */
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
     mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
-    /* Menyembunyikan scrollbar bawaan supaya elegan */
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none; 
   }
-  .wish-list-wrapper::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+  .wish-list-wrapper::-webkit-scrollbar { display: none; }
   
-  .wish-list { margin-top: 15px; margin-bottom: 15px; } /* Jarak buat efek mask */
+  .wish-list { margin-top: 15px; margin-bottom: 15px; }
   .wish { border-top: 1px solid var(--line); padding: 22px 0; animation: fadeIn 0.5s ease; }
   .wish:first-child { border-top: none; }
   .wish-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
@@ -464,7 +485,6 @@
 
 <div class="stage">
 
-  <!-- ================= COVER ================= -->
   <div id="cover">
     <img class="bg" src="foto/3124.jpg" alt="">
     <div class="veil"></div>
@@ -481,7 +501,6 @@
     </div>
   </div>
 
-  <!-- ================= QUOTE ================= -->
   <section id="quote">
     <img class="bg parallax-img" src="foto/3187.jpg" alt="">
     <div class="veil"></div>
@@ -499,7 +518,6 @@
     </button>
   </section>
 
-  <!-- ================= SALAM PEMBUKA ================= -->
   <section id="salam">
     <div class="slideshow" id="slideshow">
       <img src="foto/3130.jpg" class="active" alt="">
@@ -512,7 +530,6 @@
     </div>
   </section>
 
-  <!-- ================= GROOM ================= -->
   <section class="profile" style="padding-top:0;">
     <div class="frame">
       <p class="kicker" data-aos="fade-down">The Groom</p>
@@ -525,7 +542,6 @@
     </div>
   </section>
 
-  <!-- ================= BRIDE ================= -->
   <section class="profile" style="padding-top:0; padding-bottom:30px;">
     <div class="frame">
       <p class="kicker" data-aos="fade-down">The Bride</p>
@@ -538,7 +554,6 @@
     </div>
   </section>
 
-  <!-- ================= WAKTU & TEMPAT ================= -->
   <section id="event">
     <div class="parallax-wrap">
       <img class="parallax-img" src="foto/3187.jpg" alt="">
@@ -566,7 +581,6 @@
     </div>
   </section>
 
-  <!-- ================= SAVE THE DATE ================= -->
   <section id="savedate">
     <img class="bg parallax-img" src="foto/3163.jpg" alt="">
     <div class="veil"></div>
@@ -582,16 +596,13 @@
     </div>
   </section>
 
-  <!-- ================= GALLERY ================= -->
   <section id="gallery">
     <p class="eyebrow" data-aos="fade-up">Moments</p>
     <h2 data-aos="fade-up">Gallery</h2>
     <div class="gallery-container" id="galleryGrid">
-      <!-- Diisi otomatis oleh JavaScript -->
-    </div>
+      </div>
   </section>
 
-  <!-- ================= WEDDING GIFT ================= -->
   <section id="gift">
     <p class="eyebrow" data-aos="fade-up">Wedding Gift</p>
     <h2 data-aos="fade-up">Tanda Kasih</h2>
@@ -600,7 +611,7 @@
     <div class="bank-card" data-aos="fade-up" data-aos-delay="0">
       <div class="logo">BR</div>
       <div class="info">
-        <p class="num" style="text-decoration: none; color: #e3cd97;">1234 5678 9012</p>
+        <p class="num">1234 5678 9012</p>
         <p class="owner">a.n. Kresna</p>
       </div>
       <button class="copy" onclick="copyText(this,'123456789012')">Salin</button>
@@ -609,7 +620,7 @@
     <div class="bank-card" data-aos="fade-up" data-aos-delay="150">
       <div class="logo">BC</div>
       <div class="info">
-        <p class="num" style="text-decoration: none; color: #e3cd97;">9876 5432 100</p>
+        <p class="num">9876 5432 100</p>
         <p class="owner">a.n. Tiara</p>
       </div>
       <button class="copy" onclick="copyText(this,'98765432100')">Salin</button>
@@ -622,7 +633,6 @@
     </div>
   </section>
 
-  <!-- ================= RSVP ================= -->
   <section id="rsvp">
     <p class="eyebrow" data-aos="fade-up">RSVP</p>
     <h2 data-aos="fade-up">Ucapan & Doa</h2>
@@ -645,22 +655,18 @@
       <button type="submit" class="submit-btn" id="submitBtn" data-aos="fade-up" data-aos-delay="300">Kirim Ucapan</button>
     </form>
 
-    <!-- WRAPPER BARU AGAR BISA AUTO SCROLL -->
     <div class="wish-list-wrapper" id="wishListWrapper">
       <div class="wish-list" id="wishList"></div>
     </div>
   </section>
 
-  <!-- ================= PRE-CLOSING SLIDESHOW ================= -->
   <section id="pre-closing">
     <div class="slide-track" id="autoSlideTrack">
-      <!-- Diisi otomatis oleh JavaScript -->
-    </div>
+      </div>
     <div class="veil-top"></div>
     <div class="veil-bottom"></div>
   </section>
 
-  <!-- ================= CLOSING / FOOTER ================= -->
   <section id="closing" data-aos="fade-up">
     <p class="eyebrow">Terima Kasih</p>
     <p style="margin-top:20px; color:rgba(244,236,221,.85); max-width:320px; margin-inline:auto;">
@@ -669,14 +675,10 @@
     <div class="divider"></div>
     <p style="font-size:.9rem; color:rgba(244,236,221,.6); font-style: italic;">Kami yang berbahagia,</p>
     <h2 class="names">Kresna <span class="script" style="font-size:1.3em; vertical-align:-4px;">&</span> Tiara</h2>
-    <p class="credit">Undangan Digital dibuat dengan <a style="text-decoration: none;" href="https://alfasoftware.vercel.app/">♥︎</a></p>
+    <p class="credit">Undangan Digital dibuat dengan <a style="color: inherit; text-decoration: none;" href="https://alfasoftware.vercel.app/">♥︎</a></p>
   </section>
 
-</div><!-- /.stage -->
-
-<!-- ================= MODALS ================= -->
-<!-- Modal Pilihan Status -->
-<div class="modal-overlay" id="statusModal">
+</div><div class="modal-overlay" id="statusModal">
   <div class="modal-content">
     <h3 class="modal-title">Konfirmasi Kehadiran</h3>
     <button class="status-option" type="button" data-val="Hadir">Hadir</button>
@@ -685,7 +687,6 @@
   </div>
 </div>
 
-<!-- Modal Terima Kasih (Success Submit) -->
 <div class="modal-overlay" id="thankYouModal">
   <div class="modal-content">
     <div class="modal-icon">✨</div>
@@ -695,14 +696,12 @@
   </div>
 </div>
 
-<!-- floating music control -->
 <button id="music-toggle" class="paused" aria-label="Putar/Jeda musik" onclick="toggleMusic()">
   <svg viewBox="0 0 20 20"><rect class="bar" x="2" y="6" width="3" height="8" fill="currentColor"/><rect class="bar" x="8.5" y="3" width="3" height="14" fill="currentColor"/><rect class="bar" x="15" y="8" width="3" height="6" fill="currentColor"/></svg>
 </button>
 
 <audio id="bgm" src="audio/sound.mp3" loop preload="auto"></audio>
 
-<!-- lightbox -->
 <div id="lightbox">
   <span class="close" onclick="closeLightbox()">×</span>
   <img id="lightboxImg" src="" alt="">
@@ -945,8 +944,7 @@ function addWishToDOM(w, container) {
     container.prepend(div);
 }
 
-// FUNGSI ESCAPE HTML YANG SUDAH DIPERBAIKI (TIDAK ERROR LAGI DI VS CODE)
-function escapeHtml(s){
+function escapeHtml(s) {
   const map = {
     '&': '&amp;',
     '<': '&lt;',
@@ -984,7 +982,6 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
     document.getElementById('fStatusDisplay').value = ''; 
     await renderWishes();
     
-    // Tampilkan Modal & Reset Posisi Scroll
     openThankYouModal();
     wishWrapper.scrollTop = 0;
 
@@ -999,7 +996,6 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
     addWishToDOM({ name: name, status: statusRaw, message: msg }, el);
     openThankYouModal();
     
-    // Reset scroll & jalankan animasi jika belum
     wishWrapper.scrollTop = 0;
     cancelAnimationFrame(autoScrollReq);
     startAutoScroll();

@@ -11,16 +11,14 @@ function getClient() {
   return client;
 }
 
-// Nama tabel divalidasi ketat (huruf/angka/underscore saja) supaya aman
-// dipakai langsung di query meski berasal dari env var.
-const RAW_TABLE = process.env.DB_TABLE || 'wishes';
-const T = /^[A-Za-z0-9_]+$/.test(RAW_TABLE) ? RAW_TABLE : 'wishes';
+// PERBAIKAN: Menggunakan nama tabel kresnatiara
+const RAW_TABLE = process.env.DB_TABLE || 'kresnatiara';
+const T = /^[A-Za-z0-9_]+$/.test(RAW_TABLE) ? RAW_TABLE : 'kresnatiara';
 
 const STATUS_VALUES = ['Hadir', 'Tidak Hadir'];
 
 module.exports = async (req, res) => {
-  // CORS sederhana — izinkan dipanggil dari domain manapun (mis. undangan
-  // yang di-hosting terpisah dari backend ini)
+  // CORS sederhana
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -74,7 +72,7 @@ module.exports = async (req, res) => {
         return;
       }
 
-      // Solusi Constraint Failed: Node.js mengirim waktu pendaftaran
+      // Solusi Constraint Failed: Node.js mengirim waktu
       const now = new Date().toISOString();
 
       const inserted = await db.execute({
