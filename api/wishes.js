@@ -1,16 +1,5 @@
 const { createClient } = require('@libsql/client');
 
-let client;
-function getClient() {
-  if (!client) {
-    client = createClient({
-      url: process.env.TURSO_DATABASE_URL,
-      authToken: process.env.TURSO_AUTH_TOKEN
-    });
-  }
-  return client;
-}
-
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
@@ -21,28 +10,36 @@ module.exports = async (req, res) => {
     return;
   }
 
-  let db;
-  try {
-    db = getClient();
-  } catch (err) {
-    res.status(500).json({ error: 'DB_CLIENT_INIT_FAILED' });
+  const url = process.env.TURSO_DATABASE_URL;
+  const authToken = process.env.TURSO_AUTH_TOKEN;
+
+  if (!url || !authToken) {
+    res.status(500).json({ error: 'DB_CONFIG_MISSING' });
     return;
   }
 
-  // -------- READ --------
+  // Inisialisasi client stabil
+  let db;
+  try {
+    db = createClient({ url, authToken });
+  } catch (err) {
+    res.status(500).json({ error: 'DB_CLIENT_INIT_FAILED', detail: err.message });
+    return;
+  }
+
+  // -------- READ (GET) --------
   if (req.method === 'GET') {
     try {
-      // Menggunakan nama tabel secara eksplisit tanpa variabel luar untuk menghindari celah SQL 400
       const result = await db.execute("SELECT id, name, message, status, created_at FROM kresnatiara ORDER BY id DESC LIMIT 50");
       res.status(200).json(result.rows);
     } catch (err) {
-      console.error('DB_READ_FAILED', err.message);
+      console.error('DB_READ_FAILED', err);
       res.status(500).json({ error: 'DB_READ_FAILED', detail: err.message });
     }
     return;
   }
 
-  // -------- CREATE --------
+  // -------- CREATE (POST) --------
   if (req.method === 'POST') {
     try {
       let body = req.body;
@@ -74,7 +71,7 @@ module.exports = async (req, res) => {
 
       res.status(201).json(result.rows[0]);
     } catch (err) {
-      console.error('DB_WRITE_FAILED', err.message);
+      console.error('DB_WRITE_FAILED', err);
       res.status(500).json({ error: 'DB_WRITE_FAILED', detail: err.message });
     }
     return;
