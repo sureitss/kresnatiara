@@ -150,7 +150,7 @@
   .profile .frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--ink) 2%, rgba(20,17,16,0) 45%); }
   .profile .kicker { position: absolute; top: 30px; left: 0; right: 0; z-index: 2; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.7rem; color: var(--ink); letter-spacing: .08em; }
   .profile .info { margin-top: -45px; position: relative; z-index: 2; padding: 0 34px; }
-  .profile .name { font-size: 2.4rem; color: var(--cream); }
+  .profile .name { font-size: clamp(0.8rem, 4vw, 1.4rem); line-height: 1.2; white-space: nowrap; color: var(--cream); }
   .profile .fullname { color: var(--gold-soft); font-size: 1.05rem; margin-top: 8px; font-weight: 500;}
   .profile .desc { margin-top: 14px; font-size: .95rem; color: rgba(244,236,221,.8); }
   .profile .addr { margin-top: 8px; font-size: .9rem; color: rgba(244,236,221,.6); }
