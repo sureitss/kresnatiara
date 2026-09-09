@@ -325,13 +325,17 @@
 
   /* ================= PRE-CLOSING ================= */
   #pre-closing {
-    position: relative; height: 45vh; min-height: 350px; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center;
+    position: relative; height: 45vh; min-height: 350px; overflow: hidden; background: #000;
   }
-  .slide-track { display: flex; width: max-content; animation: scroll-x 35s linear infinite; }
-  .slide-track img { height: 45vh; min-height: 350px; min-width: 220px; width: auto; object-fit: cover; margin-right: 4px; background: #221c17; filter: brightness(0.35) grayscale(20%); }
-  @keyframes scroll-x { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  #pre-closing .veil-top { position: absolute; top: 0; left: 0; right: 0; height: 35%; background: linear-gradient(to bottom, var(--ink) 0%, transparent 100%); z-index: 2; }
-  #pre-closing .veil-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(to top, var(--ink) 0%, transparent 100%); z-index: 2; }
+  .slide-scroll {
+    position: absolute; inset: 0; overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none; scroll-behavior: auto;
+  }
+  .slide-scroll::-webkit-scrollbar { display: none; }
+  .slide-track { display: flex; width: max-content; height: 100%; }
+  .slide-track img { height: 100%; width: auto; object-fit: cover; margin-right: 4px; background: #221c17; filter: brightness(0.35) grayscale(20%); }
+  #pre-closing .veil-top { position: absolute; top: 0; left: 0; right: 0; height: 35%; background: linear-gradient(to bottom, var(--ink) 0%, transparent 100%); z-index: 2; pointer-events: none; }
+  #pre-closing .veil-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(to top, var(--ink) 0%, transparent 100%); z-index: 2; pointer-events: none; }
 
   /* ================= FOOTER ================= */
   #closing { background: var(--ink); padding-top: 30px; padding-bottom: 70px; }
@@ -361,7 +365,6 @@
     .parallax-img { transform: translateY(-50%) !important; }
     [data-aos] { transition: none !important; }
     .scroll-cue { animation: none !important; }
-    .slide-track { animation: none !important; }
   }
 </style>
 </head>
@@ -558,7 +561,9 @@
 
   <!-- ================= PRE-CLOSING SLIDESHOW ================= -->
   <section id="pre-closing" data-aos="fade-in" data-aos-duration="1500">
-    <div class="slide-track" id="autoSlideTrack"></div>
+    <div class="slide-scroll" id="autoSlideScroll">
+      <div class="slide-track" id="autoSlideTrack"></div>
+    </div>
     <div class="veil-top"></div>
     <div class="veil-bottom"></div>
   </section>
@@ -695,6 +700,45 @@ setInterval(tickCountdown, 1000);
     const img = document.createElement('img');
     img.src = src; img.loading = 'eager'; track.appendChild(img);
   });
+})();
+
+(function autoScrollSlider(){
+  const wrap = document.getElementById('autoSlideScroll');
+  if(!wrap) return;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let paused = false;
+  let resumeTimer = null;
+
+  function pause(){
+    paused = true;
+    if(resumeTimer) clearTimeout(resumeTimer);
+  }
+  function resumeSoon(){
+    if(resumeTimer) clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(()=>{ paused = false; }, 2200);
+  }
+
+  wrap.addEventListener('mouseenter', pause);
+  wrap.addEventListener('mouseleave', resumeSoon);
+  wrap.addEventListener('touchstart', pause, { passive: true });
+  wrap.addEventListener('touchend', resumeSoon, { passive: true });
+  wrap.addEventListener('pointerdown', pause);
+  wrap.addEventListener('pointerup', resumeSoon);
+  wrap.addEventListener('wheel', ()=>{ pause(); resumeSoon(); }, { passive: true });
+
+  if(reduced) return; // biarkan bisa discroll manual, tanpa auto-gerak
+
+  function tick(){
+    if(!paused){
+      const half = wrap.scrollWidth / 2;
+      if(half > 0){
+        wrap.scrollLeft += 0.55;
+        if(wrap.scrollLeft >= half){ wrap.scrollLeft -= half; }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 })();
 
 function openLightbox(src){ document.getElementById('lightboxImg').src = src; document.getElementById('lightbox').classList.add('open'); }
