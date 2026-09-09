@@ -90,7 +90,7 @@
   }
   #cover .content { position: relative; z-index: 2; }
   #cover .eyebrow { margin-bottom: 6px; }
-  #cover .names { font-size: 2.7rem; line-height: 1.15; margin: 6px 0 18px; color: var(--cream); }
+  #cover .names { font-size: 2.7rem; line-height: 1.15; margin: 6px 0 18px; color: var(--cream); white-space: nowrap; }
   #cover .to-box { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
   #cover .to-label { font-size: .9rem; color: var(--gold-soft); opacity: .85; }
   #cover .to-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 6px 0 24px; }
@@ -130,6 +130,7 @@
 
   /* ================= SALAM PEMBUKA ================= */
   #salam { padding: 0; }
+  #salam .pretitle { padding: 26px 20px 0; text-align: center; }
   .slideshow { position: relative; width: 100%; aspect-ratio: 9/13; overflow: hidden; background: #000; }
   .slideshow img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 2s ease; }
   .slideshow img.active { opacity: 1; }
@@ -142,7 +143,7 @@
   .profile .frame { position: relative; width: 100%; aspect-ratio: 9/13; overflow: hidden; border-radius: 0 0 20px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);}
   .profile .frame img { object-fit: cover; }
   .profile .frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--ink) 2%, rgba(20,17,16,0) 45%); }
-  .profile .kicker { position: absolute; top: 30px; left: 0; right: 0; z-index: 2; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--ink); letter-spacing: .08em; }
+  .profile .kicker { position: absolute; top: 30px; left: 0; right: 0; z-index: 2; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.7rem; color: var(--ink); letter-spacing: .08em; }
   .profile .info { margin-top: -45px; position: relative; z-index: 2; padding: 0 34px; }
   .profile .name { font-size: 2.4rem; color: var(--cream); }
   .profile .fullname { color: var(--gold-soft); font-size: 1.05rem; margin-top: 8px; font-weight: 500;}
@@ -331,6 +332,10 @@
   .bar:nth-child(3) { animation-delay: .3s; }
   @keyframes eq { from { transform: scaleY(.3); } to { transform: scaleY(1); } }
 
+  @media (max-width: 380px) {
+    #cover .names { font-size: 2.1rem; }
+  }
+
   @media (prefers-reduced-motion: reduce){
     html { scroll-behavior: auto; }
     .parallax-img { transform: translateY(-50%) !important; }
@@ -350,7 +355,7 @@
     <div class="veil"></div>
     <div class="content">
       <p class="eyebrow" data-aos="fade-down" data-aos-duration="1200">The Wedding Of</p>
-      <h1 class="names display" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200">Kresna<br><span class="script" style="font-size:1.4em; vertical-align:-6px;">&</span><br>Tiara</h1>
+      <h1 class="names display" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200">Kresna <span class="script" style="font-size:1.4em; vertical-align:-6px;">&</span> Tiara</h1>
       <div class="ornament" data-aos="fade-up" data-aos-delay="400">✦</div>
       <div class="to-box" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
         <p class="to-label">Kepada Yth. Bapak/Ibu/Saudara/i</p>
@@ -381,6 +386,7 @@
 
   <!-- ================= SALAM PEMBUKA ================= -->
   <section id="salam" data-aos="fade-up" data-aos-duration="1200">
+    <p class="pretitle eyebrow" data-aos="fade-up" data-aos-duration="1000">The Wedding of Tiara & Kresna</p>
     <div class="slideshow" id="slideshow">
       <img src="foto/3130.jpg" class="active" alt="">
       <img src="foto/3132.jpg" alt="">
@@ -433,7 +439,7 @@
       <p class="time">Pukul 08.00 WIB – Selesai</p>
       <p class="place">Kediaman Mempelai Wanita</p>
       <p class="addr">Ds. Beji, Kec. Boyolangu, Kab. Tulungagung</p>
-      <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Ds.+Beji+Kec.+Boyolangu+Kab.+Tulungagung">Buka Peta</a>
+      <a class="btn" target="_blank" href="https://maps.app.goo.gl/FvjFrhBakDeUpUGR6?g_st=aw">Buka Peta</a>
     </div>
 
     <div class="event-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
@@ -442,7 +448,7 @@
       <p class="time">Pukul 13.00 WIB – Selesai</p>
       <p class="place">Kediaman Mempelai Wanita</p>
       <p class="addr">Jl. Mastrip 3 RT 001 RW 003 (Belakang Kantor BPBD), Ds. Beji, Kec. Boyolangu, Kab. Tulungagung</p>
-      <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Jl.+Mastrip+3+RT+001+RW+003+Ds.+Beji+Kec.+Boyolangu+Kab.+Tulungagung">Buka Peta</a>
+      <a class="btn" target="_blank" href="https://maps.app.goo.gl/FvjFrhBakDeUpUGR6?g_st=aw">Buka Peta</a>
     </div>
   </section>
 
@@ -478,27 +484,27 @@
     <p class="sub" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Bagi yang ingin memberikan tanda kasih, dapat mengirimkan melalui rekening atau alamat di bawah ini.</p>
 
     <div class="bank-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-      <div class="logo">BR</div>
+      <div class="logo">BRI</div>
       <div class="info">
-        <p class="num" style="color: #e3cd97;">1234 5678 9012</p>
-        <p class="owner">a.n. Kresna</p>
+        <p class="num" style="color: #e3cd97;">3209 0103 1440 531</p>
+        <p class="owner">a.n. Tiara Tantri Oktafialta Dharma</p>
       </div>
-      <button class="copy" onclick="copyText(this,'123456789012')">Salin</button>
+      <button class="copy" onclick="copyText(this,'320901031440531')">Salin</button>
     </div>
 
     <div class="bank-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
-      <div class="logo">BC</div>
+      <div class="logo">[BANK]</div>
       <div class="info">
-        <p class="num" style="color: #e3cd97;">9876 5432 100</p>
-        <p class="owner">a.n. Tiara</p>
+        <p class="num" style="color: #e3cd97;">1247 0100 4352 539</p>
+        <p class="owner">a.n. Kresna Wahyu Ramadhani</p>
       </div>
-      <button class="copy" onclick="copyText(this,'98765432100')">Salin</button>
+      <button class="copy" onclick="copyText(this,'124701004352539')">Salin</button>
     </div>
 
     <div class="addr-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
       <p class="to">Penerima: Tiara</p>
-      <p class="txt">Ds. Beji Kec. Boyolangu Kab. Tulungagung</p>
-      <button class="copy" onclick="copyText(this,'Ds. Beji Kec. Boyolangu Kab. Tulungagung')">Salin Alamat Penerima</button>
+      <p class="txt">Jl. Mastrip RT 01 RW 03, Desa Beji, Kec. Boyolangu, Kab. Tulungagung, Jawa Timur, Kode Pos 66233</p>
+      <button class="copy" onclick="copyText(this,'Jl. Mastrip RT 01 RW 03, Desa Beji, Kec. Boyolangu, Kab. Tulungagung, Jawa Timur, Kode Pos 66233')">Salin Alamat Penerima</button>
     </div>
   </section>
 
@@ -589,7 +595,8 @@
 const WEDDING_DATE = "2026-10-14T08:00:00+07:00"; 
 const GALLERY_IMAGES = [
   'foto/3124.jpg', 'foto/3130.jpg', 'foto/3132.jpg',
-  'foto/3163.jpg', 'foto/3187.jpg', 'foto/3196.jpg', 'foto/3198.jpg'
+  'foto/3163.jpg', 'foto/3187.jpg',
+  'foto/3150.jpg', 'foto/3176.jpg', 'foto/3186.jpg', 'foto/3199.jpg'
 ];
 
 (function setGuestName(){
