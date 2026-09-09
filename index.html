@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="format-detection" content="telephone=no">
-<title>The Wedding of Kresna & Tiara</title>
+<title>The Wedding of Tiara & Kresna</title>
 <link rel="icon" href="data:,">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,7 +150,7 @@
   .profile .frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--ink) 2%, rgba(20,17,16,0) 45%); }
   .profile .kicker { position: absolute; top: 30px; left: 0; right: 0; z-index: 2; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.7rem; color: var(--ink); letter-spacing: .08em; }
   .profile .info { margin-top: -45px; position: relative; z-index: 2; padding: 0 34px; }
-  .profile .name { font-size: clamp(0.8rem, 4vw, 1.4rem); line-height: 1.2; white-space: nowrap; color: var(--cream); }
+  .profile .name { font-size: clamp(0.9rem, 4.4vw, 1.5rem); line-height: 1.2; white-space: nowrap; color: var(--cream); }
   .profile .fullname { color: var(--gold-soft); font-size: 1.05rem; margin-top: 8px; font-weight: 500;}
   .profile .desc { margin-top: 14px; font-size: .95rem; color: rgba(244,236,221,.8); }
   .profile .addr { margin-top: 8px; font-size: .9rem; color: rgba(244,236,221,.6); }
@@ -205,7 +205,14 @@
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
   /* ================= GIFT & ALAMAT ================= */
-  #gift { background: #1c1613; border-top: 1px solid rgba(255,255,255,0.03); }
+  #gift {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(900px 480px at 12% -8%, rgba(201,169,97,.14), transparent 60%),
+      radial-gradient(700px 460px at 108% 105%, rgba(201,169,97,.10), transparent 58%),
+      linear-gradient(180deg, #1f1a15 0%, #17120f 100%);
+    border-top: 1px solid rgba(255,255,255,0.03);
+  }
   #gift h2 { font-size: 2.2rem; }
   #gift .sub { color: rgba(244,236,221,.7); font-size: 1rem; margin-top: 12px; max-width: 360px; margin-inline: auto; }
   
@@ -360,7 +367,7 @@
     <div class="veil"></div>
     <div class="content">
       <p class="eyebrow" data-aos="fade-down" data-aos-duration="1200">The Wedding Of</p>
-      <h1 class="names display" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200">Kresna <span class="script" style="font-size:1.4em; vertical-align:-6px;">&</span> Tiara</h1>
+      <h1 class="names display" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200">Tiara <span class="script" style="font-size:1.4em; vertical-align:-6px;">&</span> Kresna</h1>
       <div class="ornament" data-aos="fade-up" data-aos-delay="400">✦</div>
       <div class="to-box" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
         <p class="to-label">Kepada Yth. Bapak/Ibu/Saudara/i</p>
@@ -498,7 +505,7 @@
     </div>
 
     <div class="bank-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
-      <div class="logo">[BANK]</div>
+      <div class="logo">BRI</div>
       <div class="info">
         <p class="num" style="color: #e3cd97;">1247 0100 4352 539</p>
         <p class="owner">a.n. Kresna Wahyu Ramadhani</p>
@@ -556,7 +563,7 @@
     </p>
     <div class="divider" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400"></div>
     <p style="font-size:.9rem; color:rgba(244,236,221,.6); font-style: italic;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">Kami yang berbahagia,</p>
-    <h2 class="names" data-aos="zoom-in-up" data-aos-duration="1200" data-aos-delay="600">Kresna <span class="script" style="font-size:1.3em; vertical-align:-4px;">&</span> Tiara</h2>
+    <h2 class="names" data-aos="zoom-in-up" data-aos-duration="1200" data-aos-delay="600">Tiara <span class="script" style="font-size:1.3em; vertical-align:-4px;">&</span> Kresna</h2>
     <p class="credit" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">Undangan Digital dibuat dengan <a style="color: inherit; text-decoration: none;" href="https://alfasoftware.vercel.app/">♥︎</a></p>
   </section>
 
@@ -601,7 +608,7 @@ const WEDDING_DATE = "2026-10-14T08:00:00+07:00";
 const GALLERY_IMAGES = [
   'foto/3124.jpg', 'foto/3130.jpg', 'foto/3132.jpg',
   'foto/3163.jpg', 'foto/3187.jpg',
-  'foto/3150.jpg', 'foto/3176.jpg', 'foto/3186.jpg', 'foto/3199.jpg'
+  'foto/3150.jpg', 'foto/3176.jpg', 'foto/3186.jpg', 'foto/3199.jpg', 'foto/3200.jpg'
 ];
 
 (function setGuestName(){
