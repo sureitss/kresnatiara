@@ -135,8 +135,9 @@
   .slideshow img.active { opacity: 1; }
   .slideshow .veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,17,16,1) 0%, rgba(20,17,16,.2) 45%, rgba(20,17,16,.6) 100%); }
   .slideshow .pretitle {
-    position: absolute; top: 56px; left: 0; right: 0; z-index: 2; text-align: center; padding: 0 24px;
-    font-size: 1.15rem; letter-spacing: .24em; color: var(--gold-soft);
+    position: absolute; top: 56px; left: 0; right: 0; z-index: 2; text-align: center; padding: 0 12px;
+    font-size: clamp(0.7rem, 4vw, 1rem); letter-spacing: .08em; color: var(--gold-soft);
+    white-space: nowrap;
     text-shadow: 0 2px 14px rgba(0,0,0,.75), 0 0 30px rgba(0,0,0,.5);
   }
   .slideshow .caption { position: absolute; left: 0; right: 0; bottom: 45px; z-index: 2; padding: 0 32px; }
