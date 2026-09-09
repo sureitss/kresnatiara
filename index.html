@@ -130,11 +130,15 @@
 
   /* ================= SALAM PEMBUKA ================= */
   #salam { padding: 0; }
-  #salam .pretitle { padding: 26px 20px 0; text-align: center; }
   .slideshow { position: relative; width: 100%; aspect-ratio: 9/13; overflow: hidden; background: #000; }
   .slideshow img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 2s ease; }
   .slideshow img.active { opacity: 1; }
   .slideshow .veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,17,16,1) 0%, rgba(20,17,16,.2) 45%, rgba(20,17,16,.6) 100%); }
+  .slideshow .pretitle {
+    position: absolute; top: 56px; left: 0; right: 0; z-index: 2; text-align: center; padding: 0 24px;
+    font-size: 1.15rem; letter-spacing: .24em; color: var(--gold-soft);
+    text-shadow: 0 2px 14px rgba(0,0,0,.75), 0 0 30px rgba(0,0,0,.5);
+  }
   .slideshow .caption { position: absolute; left: 0; right: 0; bottom: 45px; z-index: 2; padding: 0 32px; }
   .slideshow .caption p { font-size: 1rem; color: var(--gold-soft); line-height: 1.8; }
 
@@ -386,11 +390,11 @@
 
   <!-- ================= SALAM PEMBUKA ================= -->
   <section id="salam" data-aos="fade-up" data-aos-duration="1200">
-    <p class="pretitle eyebrow" data-aos="fade-up" data-aos-duration="1000">The Wedding of Tiara & Kresna</p>
     <div class="slideshow" id="slideshow">
       <img src="foto/3130.jpg" class="active" alt="">
       <img src="foto/3132.jpg" alt="">
       <div class="veil"></div>
+      <p class="pretitle eyebrow" data-aos="fade-down" data-aos-duration="1200">The Wedding of Tiara & Kresna</p>
       <div class="caption" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
         <p class="eyebrow" style="margin-bottom:12px;">Assalamu'alaikum Wr. Wb.</p>
         <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.</p>
