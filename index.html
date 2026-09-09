@@ -149,8 +149,8 @@
   .profile .frame img { object-fit: cover; }
   .profile .frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--ink) 2%, rgba(20,17,16,0) 45%); }
   .profile .kicker { position: absolute; top: 30px; left: 0; right: 0; z-index: 2; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.7rem; color: var(--ink); letter-spacing: .08em; }
-  .profile .info { margin-top: -45px; position: relative; z-index: 2; padding: 0 34px; }
-  .profile .name { font-size: clamp(0.9rem, 4.4vw, 1.5rem); line-height: 1.2; white-space: nowrap; color: var(--cream); }
+  .profile .info { margin-top: -45px; position: relative; z-index: 2; padding: 0 20px; }
+  .profile .name { font-size: clamp(0.85rem, 4.8vw, 1.55rem); line-height: 1.2; white-space: nowrap; color: var(--cream); }
   .profile .fullname { color: var(--gold-soft); font-size: 1.05rem; margin-top: 8px; font-weight: 500;}
   .profile .desc { margin-top: 14px; font-size: .95rem; color: rgba(244,236,221,.8); }
   .profile .addr { margin-top: 8px; font-size: .9rem; color: rgba(244,236,221,.6); }
@@ -208,9 +208,10 @@
   #gift {
     position: relative; overflow: hidden;
     background:
-      radial-gradient(900px 480px at 12% -8%, rgba(201,169,97,.14), transparent 60%),
-      radial-gradient(700px 460px at 108% 105%, rgba(201,169,97,.10), transparent 58%),
-      linear-gradient(180deg, #1f1a15 0%, #17120f 100%);
+      radial-gradient(900px 480px at 12% -8%, rgba(201,169,97,.16), transparent 60%),
+      radial-gradient(700px 460px at 108% 105%, rgba(201,169,97,.12), transparent 58%),
+      linear-gradient(180deg, rgba(23,18,15,.93) 0%, rgba(23,18,15,.97) 55%, var(--ink) 100%),
+      url('foto/3150.jpg') center/cover no-repeat;
     border-top: 1px solid rgba(255,255,255,0.03);
   }
   #gift h2 { font-size: 2.2rem; }
@@ -249,7 +250,14 @@
   .addr-card .copy:hover, .addr-card .copy.copied { background: var(--gold); color: var(--ink); }
 
   /* ================= RSVP & DAFTAR UCAPAN ================= */
-  #rsvp { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.03); }
+  #rsvp {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(800px 420px at 88% -10%, rgba(201,169,97,.12), transparent 60%),
+      linear-gradient(180deg, rgba(20,17,16,.92) 0%, rgba(20,17,16,.97) 55%, var(--ink) 100%),
+      url('foto/3199.jpg') center/cover no-repeat;
+    border-top: 1px solid rgba(255,255,255,0.03);
+  }
   #rsvp h2 { font-size: 2.2rem; }
   #rsvp .sub { color: rgba(244,236,221,.65); font-size: 1rem; margin-top: 10px; }
   
