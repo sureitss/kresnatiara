@@ -154,6 +154,15 @@
   .profile .fullname { color: var(--gold-soft); font-size: 1.05rem; margin-top: 8px; font-weight: 500;}
   .profile .desc { margin-top: 14px; font-size: .95rem; color: rgba(244,236,221,.8); }
   .profile .addr { margin-top: 8px; font-size: .9rem; color: rgba(244,236,221,.6); }
+  .ig-link {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 14px;
+    padding: 8px 18px; border: 1px solid var(--gold); border-radius: 999px;
+    background: rgba(201,169,97,.08); color: var(--gold-soft); text-decoration: none;
+    font-family: 'Cormorant Garamond', serif; letter-spacing: .08em; font-size: .92rem;
+    transition: .35s cubic-bezier(0.4,0,0.2,1);
+  }
+  .ig-link:hover, .ig-link:active { background: var(--gold); color: var(--ink); }
+  .ig-link svg { width: 16px; height: 16px; flex-shrink: 0; }
 
   /* ================= EVENT ================= */
   #event { position: relative; overflow: hidden; padding-bottom: 70px; }
@@ -431,7 +440,10 @@
       <h2 class="name">Kresna Wahyu Ramadhani</h2>
       <p class="fullname">Putra Pertama dari Bpk. Slamet Waluyo & Ibu Wahyu Widayati</p>
       <p class="addr">Ds. Gogorante, Kec. Ngasem, Kab. Kediri</p>
-      <p class="addr"><a href="https://www.instagram.com/kresna_wr" target="_blank" style="color: var(--gold-soft); text-decoration:none;">@kresna_wr</a></p>
+      <a class="ig-link" href="https://www.instagram.com/kresna_wr" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        @kresna_wr
+      </a>
     </div>
   </section>
 
@@ -445,7 +457,10 @@
       <h2 class="name">Tiara Tantri Oktafialta Dharma</h2>
       <p class="fullname">Putri Pertama dari Bpk. Kristanta Eka Dharma & Ibu Sulastri</p>
       <p class="addr">Ds. Beji, Kec. Boyolangu, Kab. Tulungagung</p>
-      <p class="addr"><a href="https://www.instagram.com/tiaratantri_oktav" target="_blank" style="color: var(--gold-soft); text-decoration:none;">@tiaratantri_oktav</a></p>
+      <a class="ig-link" href="https://www.instagram.com/tiaratantri_oktav" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        @tiaratantri_oktav
+      </a>
     </div>
   </section>
 
